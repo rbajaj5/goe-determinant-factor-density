@@ -64,18 +64,28 @@ an exact second/fourth Wiener-chaos decomposition, all integer moments, the
 first scalar recurrence coefficients, and a coefficientwise Laguerre limit
 for the resulting nonclassical orthogonal-polynomial family.
 
+[LOOP_EQUATION_NOTE.md](LOOP_EQUATION_NOTE.md) lifts the scalar factor to its
+two independent gamma coordinates and proves an exact Ward/loop hierarchy,
+mixed-moment recurrences, a resolvent hierarchy, and two characterizations
+of the lifted law. The note also gives the precise boundary with the
+random-matrix universality theorem of Bourgade and Huang: the proof
+architecture transfers, but their point-process conclusion does not apply
+to a single determinant factor.
+
 ## Verification
 
 The checkers use only the Python standard library. The first compares the
 corrected density against a numerical derivative of the independently
 computed conditional CDF. The second compares the beta-hypergeometric angular
 moments with direct quadrature and independently checks the transformed
-density kernel:
+density kernel. The fourth checker verifies the two loop recurrences against
+the closed mixed-moment formula using exact rational arithmetic:
 
 ```text
 python verification.py
 python representation_verification.py
 python orthogonality_verification.py
+python loop_equation_verification.py
 ```
 
 The computation is a transcription check, not a substitute for the proof.
@@ -95,3 +105,6 @@ The computation is a transcription check, not a substitute for the proof.
 2. Folkmar Bornemann and Michael La Croix,
    [*The Singular Values of the GOE*](https://arxiv.org/abs/1502.05946),
    2015.
+3. Paul Bourgade and Jiaoyang Huang,
+   [*Loop Equations Characterize Random Matrix Statistics*](https://arxiv.org/abs/2607.07617),
+   2026.
