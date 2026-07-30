@@ -126,8 +126,7 @@ Consequently,
 \frac{\mathrm B(\frac12+\frac{s}{4},m)}
      {\mathrm B(\frac12,m)}
 \\
-&\mathrel{\phantom{=}}
-\times{}_2F_1\!\left(
+&\times{}_2F_1\!\left(
  -\frac{s}{4},\frac12+\frac{s}{4};
  m+\frac12+\frac{s}{4};
  \frac12
