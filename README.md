@@ -58,6 +58,12 @@ as a hyperbolic Bessel-type integral. It also states precisely how this
 rank-one calculation relates to—but does not reprove—Dyson's type-$A$
 integral.
 
+[ORTHOGONALITY_NOTE.md](ORTHOGONALITY_NOTE.md) continues this analysis through
+the oscillator representation. It gives the complete Jacobi--Laguerre basis,
+an exact second/fourth Wiener-chaos decomposition, all integer moments, the
+first scalar recurrence coefficients, and a coefficientwise Laguerre limit
+for the resulting nonclassical orthogonal-polynomial family.
+
 ## Verification
 
 The checkers use only the Python standard library. The first compares the
@@ -69,6 +75,7 @@ density kernel:
 ```text
 python verification.py
 python representation_verification.py
+python orthogonality_verification.py
 ```
 
 The computation is a transcription check, not a substitute for the proof.
