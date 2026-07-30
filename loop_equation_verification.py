@@ -36,8 +36,9 @@ def check_displayed_moments() -> None:
         assert mixed_moment(m, 0, 0, 2) == 48 * m * m + 168 * m + 105
 
 
-def check_loop_hierarchy() -> int:
-    checks = 0
+def check_loop_hierarchy() -> tuple[int, int]:
+    differential_checks = 0
+    algebraic_checks = 0
     for m in range(1, 9):
         for a in range(5):
             for b in range(5):
@@ -52,7 +53,7 @@ def check_loop_hierarchy() -> int:
                             + mixed_moment(m, a + 1, b + 1, n - 1)
                         )
                     assert first == 0
-                    checks += 1
+                    differential_checks += 1
 
                     second = (2 * m + 2 * b) * base
                     second -= mixed_moment(m, a, b + 1, n)
@@ -63,14 +64,25 @@ def check_loop_hierarchy() -> int:
                             * mixed_moment(m, a + 1, b + 1, n - 1)
                         )
                     assert second == 0
-                    checks += 1
-    return checks
+                    differential_checks += 1
+
+                    algebraic = mixed_moment(m, a + 2, b, n)
+                    algebraic += 2 * mixed_moment(m, a + 1, b + 1, n)
+                    algebraic -= mixed_moment(m, a, b, n + 1)
+                    assert algebraic == 0
+                    algebraic_checks += 1
+    return differential_checks, algebraic_checks
 
 
 def main() -> None:
     check_displayed_moments()
-    checks = check_loop_hierarchy()
-    print(f"Verified {checks} exact mixed-moment loop identities.")
+    differential_checks, algebraic_checks = check_loop_hierarchy()
+    total = differential_checks + algebraic_checks
+    print(
+        f"Verified {total} exact identities: "
+        f"{differential_checks} differential and "
+        f"{algebraic_checks} algebraic."
+    )
 
 
 if __name__ == "__main__":

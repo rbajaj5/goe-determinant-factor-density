@@ -60,6 +60,42 @@ u^{-1/2}v^{m-1}e^{-(u+v)/2}
 The identities extend to the test functions used below by approximation,
 because the gamma tails dominate every polynomial factor.
 
+### Exponential linearization
+
+Define the joint Laplace transform
+
+```math
+\Phi(s,t)=\mathbb E\left[e^{-sU-tV}\right],
+\qquad s,t\geq0.
+```
+
+Taking \(g(u,v)=e^{-su-tv}\) in the two Ward identities gives the closed
+linear system
+
+```math
+\boxed{
+(1+2s)\partial_s\Phi+\Phi=0,
+\qquad
+(1+2t)\partial_t\Phi+2m\Phi=0,
+\qquad
+\Phi(0,0)=1.
+}
+```
+
+Its unique solution is
+
+```math
+\boxed{
+\Phi(s,t)=(1+2s)^{-1/2}(1+2t)^{-m}.
+}
+```
+
+This supplies another characterization: any probability law on the
+nonnegative quadrant whose Laplace transform satisfies this system is the
+product of the two gamma laws above. Unlike a moment-generating-function
+argument, this Laplace-transform formulation needs no positive exponential
+moment.
+
 ## 3. Exact polynomial loop hierarchy
 
 ### Theorem 1
@@ -159,9 +195,88 @@ and
 }
 ```
 
-This is an exact finite-dimensional loop hierarchy. It is not yet a closed
-scalar differential equation for \(G_{0,0}\); eliminating all mixed
-resolvents would be an additional result.
+The polynomial definition of \(T\) supplies a second, algebraic part of the
+system:
+
+```math
+\boxed{
+G_{a+2,b}(z)+2G_{a+1,b+1}(z)
+=
+zG_{a,b}(z)-M_{a,b,0}.
+}
+```
+
+Indeed,
+
+```math
+\frac{T}{z-T}=\frac{z}{z-T}-1,
+```
+
+and multiplication by \(U^aV^b\) followed by expectation proves the
+identity. Differentiating it also gives
+
+```math
+\partial_zG_{a+2,b}
++2\partial_zG_{a+1,b+1}
+=
+G_{a,b}+z\partial_zG_{a,b}.
+```
+
+Thus the mixed resolvents satisfy an exact differential-algebraic loop
+system. It is not yet a closed scalar differential equation for \(G_{0,0}\);
+eliminating all mixed resolvents would be an additional result.
+
+### Laplace-observable hierarchy for \(T\)
+
+Define
+
+```math
+F_{a,b}(\lambda)
+=
+\mathbb E\left[U^aV^b e^{-\lambda T}\right],
+\qquad \lambda\geq0.
+```
+
+Taking \(f(t)=e^{-\lambda t}\) in Theorem 1 gives the linear relations
+
+```math
+\boxed{
+\begin{aligned}
+F_{a+1,b}
+={}&(2a+1)F_{a,b}\\
+&-4\lambda\left(F_{a+2,b}+F_{a+1,b+1}\right),
+\end{aligned}
+}
+```
+
+and
+
+```math
+\boxed{
+F_{a,b+1}
+=(2m+2b)F_{a,b}
+-4\lambda F_{a+1,b+1}.
+}
+```
+
+Differentiation with respect to \(\lambda\) supplies the algebraic part:
+
+```math
+\boxed{
+\partial_\lambda F_{a,b}
+=
+-F_{a+2,b}-2F_{a+1,b+1}.
+}
+```
+
+Thus an exponential observable turns the exact Ward hierarchy into a linear
+differential-algebraic system. The initial values at \(\lambda=0\) are
+
+```math
+F_{a,b}(0)
+=
+2^{a+b}\left(\frac12\right)_a(m)_b.
+```
 
 ## 5. Exact mixed-moment recurrences
 
@@ -379,13 +494,38 @@ process. It has no bulk or edge scaling limit to which the
 applied.
 
 Their analytic uniqueness proof also has to select admissible solution
-branches. In the edge problem this involves square-free derivative
-reduction, a radial block system with a spectral gap, and a Volterra
-contraction. None of that machinery is silently imported here. After lifting
-the scalar variable to two independent gamma coordinates, the loop equations
-are exact, and their base polynomial level is triangular. Theorem 2 therefore
-selects the law directly from its mixed moments, without a local law,
-cumulant truncation, or asymptotic error estimate.
+branches. They first exponentiate integrated Stieltjes transforms to obtain
+characteristic-ratio observables satisfying deformed
+Calogero--Moser--Sutherland equations. In the edge problem, the subsequent
+uniqueness analysis involves square-free derivative reduction, a radial block
+system with a spectral gap, and a Volterra contraction.
+
+None of that machinery is silently imported here. The exponentials
+\(e^{-sU-tV}\) and \(e^{-\lambda T}\) play an analogous linearizing role, but
+their equations are the first-order gamma system and the mixed
+differential-algebraic system displayed above, not deformed
+Calogero--Moser--Sutherland equations. After lifting the scalar variable to
+two independent gamma coordinates, the loop equations are exact, and their
+base polynomial level is triangular. Theorem 2 therefore selects the law
+directly from its mixed moments, without a local law, cumulant truncation, or
+asymptotic error estimate.
+
+There is also an important algebraic difference. In the matrix calculation,
+differentiating the matrix resolvent and summing over matrix indices produces
+quadratic trace terms such as the square of the normalized Stieltjes
+transform. For this scalar factor, differentiating \((z-T)^{-1}\) introduces
+mixed \(U,V\) weights instead. The multiplication identity in Section 4
+controls those weights, but it does not by itself produce a closed quadratic
+equation for \(G_{0,0}\).
+
+For random regular graphs, Bourgade and Huang additionally split into a
+high-probability local-law event and its complement, linearize a discrete
+switching identity, and prove that the Taylor remainder is negligible. There
+is no corresponding bad-event or switching remainder here: the gamma
+integration-by-parts identities and the exponential-observable system are
+finite-dimensional equalities. A perturbative theorem for approximately
+gamma inputs would require a new quantitative error hypothesis, such as a
+Stein discrepancy; it is not implied by the exact calculation.
 
 ## 9. Status
 
@@ -393,6 +533,9 @@ cumulant truncation, or asymptotic error estimate.
   two characterization theorems are proved above.
 - The identities are specializations of standard gamma integration by parts;
   global novelty is not claimed.
+- The exponential-observable linearization is an exact gamma analogue of the
+  organizational move in Bourgade--Huang, not an identification with their
+  deformed Calogero--Moser--Sutherland system.
 - The exact mixed hierarchy is useful for systematic moment calculations and
   for checking future differential equations for the density or Stieltjes
   transform.
