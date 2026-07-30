@@ -72,6 +72,12 @@ random-matrix universality theorem of Bourgade and Huang: the proof
 architecture transfers, but their point-process conclusion does not apply
 to a single determinant factor.
 
+[DEFORMATION_AND_STABILITY.md](DEFORMATION_AND_STABILITY.md) places the GOE
+factor in the one-parameter family \(T_{m,c}=U^2+cUV\). It proves the exact
+deformed loop hierarchy and mixed moments, then gives a nonasymptotic
+quadratic-Wasserstein bound for convergence of \(T_{m,c}/(2cm)\) to
+\(\chi_1^2\), including the first correction to every fixed moment.
+
 ## Verification
 
 The checkers use only the Python standard library. The first compares the
@@ -86,6 +92,7 @@ python verification.py
 python representation_verification.py
 python orthogonality_verification.py
 python loop_equation_verification.py
+python deformation_verification.py
 ```
 
 The computation is a transcription check, not a substitute for the proof.
