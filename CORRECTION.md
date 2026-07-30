@@ -60,7 +60,7 @@ At the moving endpoint $s=t$, we have $g_t(t)=0$ and hence
 $F_Y(g_t(t))=0$. There is therefore no boundary contribution when
 the expression is differentiated with respect to $t$.
 
-## 3. Differentiation
+## 3. Density by change of variables
 
 Direct calculation gives
 
@@ -70,17 +70,37 @@ Direct calculation gives
 \frac{t^3}{s^2g_t(s)}.
 ```
 
-Thus
+To avoid any unspoken interchange of a derivative and an integral, apply the
+two-dimensional change-of-variables theorem directly. On the positive
+quadrant, use
 
 ```math
-f_{R_m}(t)
-\;=\;
-\int_0^t
-f_X(s)f_Y(g_t(s))
-\frac{\partial g_t(s)}{\partial t}\,\mathrm{d}s .
+(s,y)
+\longmapsto
+\left(s,t=(s^4+2s^2y^2)^{1/4}\right).
 ```
 
-Substituting the two chi densities and the derivative gives
+This is a smooth bijection from $s\gt0$, $y\gt0$ onto $0\lt s\lt t$.
+Its inverse is $(s,t)\mapsto(s,g_t(s))$, and the absolute Jacobian of
+the inverse is
+
+```math
+\left|\frac{\partial g_t(s)}{\partial t}\right|
+=
+\frac{t^3}{s^2g_t(s)}.
+```
+
+The joint density of $(X,R_m)$ is therefore
+
+```math
+f_{X,R_m}(s,t)
+=
+f_X(s)f_Y(g_t(s))
+\frac{t^3}{s^2g_t(s)}
+\qquad (0\lt s\lt t).
+```
+
+Integrating out $s$ and substituting the two chi densities gives
 
 ```math
 f_{R_m}(t)
@@ -93,6 +113,26 @@ g_t(s)^{\,2m-2}
 ```
 
 This proves the corrected formula.
+
+For completeness, differentiating the conditional CDF in Section 2 gives the
+same calculation and is also legitimate. Locally uniformly for $t$ in a
+compact subinterval of $(0,\infty)$, its derivative integrand is
+
+```math
+O\!\left((t-s)^{m-1}\right)
+\quad\text{as }s\uparrow t
+```
+
+and
+
+```math
+O\!\left(s^{-2m}e^{-c/s^2}\right)
+\quad\text{as }s\downarrow0
+```
+
+for some $c\gt0$. Both bounds are integrable. The moving-endpoint term is
+zero because $F_Y(g_t(t))=F_Y(0)=0$. Thus dominated differentiation gives
+the same density, but it is not needed for the proof above.
 
 ## 4. What changes from the 2016 typesetting
 

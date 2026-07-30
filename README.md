@@ -48,14 +48,27 @@ argument itself gives the corrected formula directly.
 See [CORRECTION.md](CORRECTION.md) for the proof, an independent
 beta-gamma check, and a precise statement of the priority boundary.
 
+## Representation-theoretic continuation
+
+[DYSON_REPRESENTATION_NOTE.md](DYSON_REPRESENTATION_NOTE.md) treats the
+corrected integral as an algebraic orbital integral. It identifies the compact
+rank-one quotient, derives the exact Jacobi spherical expansion and its first
+anisotropy coefficient, gives the Mellin transform, and rewrites the density
+as a hyperbolic Bessel-type integral. It also states precisely how this
+rank-one calculation relates to—but does not reprove—Dyson's type-$A$
+integral.
+
 ## Verification
 
-The checker uses only the Python standard library. It compares the corrected
-density against a numerical derivative of the independently computed
-conditional CDF:
+The checkers use only the Python standard library. The first compares the
+corrected density against a numerical derivative of the independently
+computed conditional CDF. The second compares the beta-hypergeometric angular
+moments with direct quadrature and independently checks the transformed
+density kernel:
 
 ```text
 python verification.py
+python representation_verification.py
 ```
 
 The computation is a transcription check, not a substitute for the proof.
