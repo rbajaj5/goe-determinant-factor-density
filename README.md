@@ -8,41 +8,41 @@ Bornemann and La Croix discovered an independent-factor representation of the
 GOE determinant. One exceptional factor in that representation leads, after
 taking a square root, to
 
-$$
+```math
 R_m=\left(\xi_1^4+2\xi_1^2\xi_{2m}^2\right)^{1/4},
-$$
+```
 
-where \(\xi_1\) and \(\xi_{2m}\) are independent chi random variables.
+where $\xi_1$ and $\xi_{2m}$ are independent chi random variables.
 The 2016 appendix derived a direct one-dimensional integral for the density of
-\(R_m\). The principal GOE source instead records a hypergeometric Mellin
+$R_m$. The principal GOE source instead records a hypergeometric Mellin
 transform and notes that its inverse Mellin transform is not readily written
 down.
 
 ## Corrected result
 
-For \(t>0\), define
+For $t>0$, define
 
-$$
+```math
 g_t(s)=
 \sqrt{\frac12\left(\frac{t^4}{s^2}-s^2\right)}
 \qquad (0<s<t).
-$$
+```
 
 Then
 
-$$
+```math
 \boxed{
 f_{R_m}(t)=
-\frac{2^{\,2-m}t^3}{\Gamma(m)\sqrt{2\pi}}
+\frac{2^{2-m}t^3}{\Gamma(m)\sqrt{2\pi}}
 \int_0^t
-g_t(s)^{\,2m-2}
+g_t(s)^{2m-2}
 \frac{\exp\!\left(-\frac{s^2+g_t(s)^2}{2}\right)}{s^2}
-\,ds .
+\mathrm{d}s .
 }
-$$
+```
 
-The typeset 2016 formula has \(2^{1-m}\) where \(2^{2-m}\) is
-required and \(m-2\) where \(2m-2\) is required. The conditioning
+The typeset 2016 formula has $2^{1-m}$ where $2^{2-m}$ is
+required and $m-2$ where $2m-2$ is required. The conditioning
 argument itself gives the corrected formula directly.
 
 See [CORRECTION.md](CORRECTION.md) for the proof, an independent
@@ -75,4 +75,3 @@ The computation is a transcription check, not a substitute for the proof.
 2. Folkmar Bornemann and Michael La Croix,
    [*The Singular Values of the GOE*](https://arxiv.org/abs/1502.05946),
    2015.
-
