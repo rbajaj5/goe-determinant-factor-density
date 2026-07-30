@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this correction, please cite this repository and the 2016 report."
+title: "Density of an exceptional GOE determinant factor"
+type: software
+authors:
+  - family-names: "Bajaj"
+    given-names: "Ravi Andrew"
+repository-code: "https://github.com/rbajaj5/goe-determinant-factor-density"
+date-released: 2026-07-30
+
