@@ -40,7 +40,7 @@ Fix $t>0$. Conditional on $X=s$, the event $R_m\leq t$ is
 s^4+2s^2Y^2\leq t^4.
 ```
 
-It is empty for $s>t$. For $0<s<t$, it is equivalent to
+It is empty for $s\gt t$. For $0\lt s\lt t$, it is equivalent to
 
 ```math
 Y\leq

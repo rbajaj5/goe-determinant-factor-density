@@ -25,7 +25,7 @@ For $t>0$, define
 ```math
 g_t(s)=
 \sqrt{\frac12\left(\frac{t^4}{s^2}-s^2\right)}
-\qquad (0<s<t).
+\qquad (0\lt s\lt t).
 ```
 
 Then
